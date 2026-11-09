@@ -4,7 +4,7 @@
 #include <ctype.h>
 int F(char symbol)
 {
-    switch(synbol)
+    switch(symbol)
     {
         case'+':
         case'-':return 2;
@@ -22,7 +22,7 @@ int F(char symbol)
 int G(char symbol){
     switch(symbol){
         case'+':
-        case'_':return 1;
+        case'-':return 1;
         case'*':
         case'/':return 3;
         case'^':
@@ -51,7 +51,7 @@ void InfixToPostfix(char infix[],char postfix[])
         while(F(s[top])>G(symbol))
         {
             postfix[j]=s[top--];
-            j++
+            j++;
 
         }
         if(F(s[top])!=G(symbol))
@@ -62,14 +62,14 @@ void InfixToPostfix(char infix[],char postfix[])
         else
         top--;
     }
-    while(s[top!='#'])
+    while(s[top]!='#')
     {
         postfix[j++]=s[top--];
 
     }
     postfix[j]='\0';
 }
-void main()
+int main(void)
 {
     char infix[30];
     char postfix[30];
@@ -77,12 +77,10 @@ void main()
     scanf("%s",infix);
     InfixToPostfix(infix,postfix);
     printf("\n Infix string is: %s",infix);
-    InfixToPostfix(infix,postfix);
     if (strlen(postfix)>0)
     {
         printf("\n Postfix string is: %s",postfix); 
     }
-    
-    
-
+    printf("\n");
+    return 0;
 }
